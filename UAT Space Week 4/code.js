@@ -83,33 +83,38 @@ function blastoffTimer(){
 
 }
 
+//improved version of blastoffTimer() that uses a for loop
 function betterBlastoffTimer(){
+    //displays blastoffTimer() started in the console
     console.log("blastoffTimer() started");
     //loop for 10 timers, seconds 50 - 5
     currTime = 50;
     //seperate time for blastoff
 
+    //loop runs 11 times
     for(var i = 0; i < 11; i=i + 1){
         setTimeout(function(){
+            //diplays currTime to the console
             console.log("currTime =" + currTime);
+            //displays time left on the webpage
             document.getElementById("blastoffDis").innerHTML = currTime + "sec left";
+            //checks is the current time left is between 25 seconds and 0 seconds
             if(currTime < 25 && currTime > 0){
+                //displays Warning! Less than half way to launch.
                 document.getElementById("blastoffWarning").innerHTML = "Warning! Less than half way to launch.";
             }
+            //checks if the countdown is complete
             else if(currTime == 0) {
+                    //displays Blastoff! on the webpage
                     document.getElementById("blastoffDis").innerHTML = "Blastoff!";
+                    //removes the halfway warning
                     document.getElementById("blastoffWarning").innerHTML = "";
             }
+            //lowers the countdown in increments of five
             currTime = currTime - 5;
+        //sets a delay on the for loop, making each lopp 5 seconds after the previous one
         }, 500 * i);
     }
-    /*setTimeout(function(){
-        if(currTime <= 0){
-            console.log("currTime =" + currTime);
-            document.getElementById("blastoffDis").innerHTML = "Blastoff!";
-            document.getElementById("blastoffWarning").innerHTML = "";
-        }
-    }, 50000); */
 }
 
 // craps tracking variables
